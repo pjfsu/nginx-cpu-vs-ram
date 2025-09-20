@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: medium-cpu
+spec:
+  containers:
+    - name: nginx
+      image: docker.io/library/nginx:latest
+      ports:
+        - containerPort: 80
+      resources:
+        requests:
+          cpu: "2"        # 2 CPU core
+          memory: "1Gi"   # 1 GB RAM
+        limits:
+          cpu: "2"        # 2 CPU core
+          memory: "1Gi"   # 1 GB RAM
+
