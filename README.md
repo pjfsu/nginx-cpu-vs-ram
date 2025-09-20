@@ -130,6 +130,19 @@ Scaling is not perfectly linear (due to benchmarking tool limits, network stack,
 > 
 > Network stack and kernel limits: TCP connection handling, socket buffers, and system limits can cap throughput before CPU is saturated.
 
+## Summary
+
+| Target      | CPU Cores | RAM  | Connections | Total Requests | Requests/sec | Avg Response (ms) | 95th Percentile (ms) |
+|-------------|-----------|------|-------------|----------------|--------------|-------------------|----------------------|
+| low-ram     | 1         | 1Gi  | 1000        | 5000           | 6683.04      | 14.96             | 19                   |
+| medium-ram  | 1         | 2Gi  | 1000        | 5000           | 6289.94      | 15.90             | 21                   |
+| high-ram    | 1         | 4Gi  | 1000        | 5000           | 6877.00      | 14.54             | 20                   |
+| low-cpu     | 1         | 1Gi  | 1000        | 5000           | 6239.97      | 16.03             | 21                   |
+| medium-cpu  | 2         | 1Gi  | 1000        | 5000           | 6173.38      | 16.20             | 21                   |
+| high-cpu    | 4         | 1Gi  | 1000        | 5000           | 8180.71      | 12.22             | 14                   |
+
+> Benchmark parameters: **5000 requests**, **1000 concurrent connections**, tested with ApacheBench (`ab`).
+
 ## Conclusion
 
 - **More RAM**: No meaningful impact on Nginx throughput or latency for simple HTTP workloads.  
